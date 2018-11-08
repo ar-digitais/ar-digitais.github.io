@@ -9,7 +9,7 @@
  <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs>
     		<a-assets>
-		    <video id="video" autoplay loop='true' src="barbie-pop.mp4" webkit-playsinline></video>
+		    <video id="video" autoplay loop='true' src="pop.mp4" webkit-playsinline></video>
 		</a-assets>
 	  	<a-marker preset='custom' type='pattern' url='ded.patt'>
 	  		<a-image src="equipe-gu.png" rotation="-90 0 0" height=6 width=6></a-image>
@@ -25,7 +25,7 @@
 	  	</a-marker>
 	  	<a-marker preset='hiro'> 	
 			<!-- Using the asset management system. -->
-			<a-video src="#video" rotation="-90 0 0" width="2" webkit-playsinline playsinline></a-video>
+			<a-video src="#video" rotation="-90 0 0" height="2" width="4" webkit-playsinline playsinline></a-video>
 	  	</a-marker>
   		<a-entity camera></a-entity>
     </a-scene>
