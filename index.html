@@ -9,7 +9,7 @@
  <body style='margin : 0px; overflow: hidden;'>
  	<input id='elementID' autoplay type="submit" style="display: none;">
     <a-scene embedded arjs>
-    	<a-assets>
+    		<a-assets>
 		    <video id="video" loop='true' src="barbie-pop.mp4" webkit-playsinline></video>
 		</a-assets>
 	  	<a-marker preset='custom' type='pattern' url='ded.patt'>
@@ -30,37 +30,6 @@
 	  	</a-marker>
   		<a-entity camera></a-entity>
     </a-scene>
-    <script type="text/javascript">
-	  document.addEventListener("DOMContentLoaded", function(event) {
-	    var scene = document.querySelector("a-scene");
-	    var vid = document.getElementById("video");
-
-		document.getElementById('elementID').click();
-
-	    if (scene.hasLoaded) {
-	      playVideo();
-	    } else {
-	      scene.addEventListener("loaded", run);
-	    }
-
-	    function run () {
-	      if(AFRAME.utils.device.isMobile()) {
-	        document.querySelector('#splash').style.display = 'flex';
-	        document.querySelector('#splash').addEventListener('click', function () {
-	          playVideo();
-	          this.style.display = 'none';
-	        })
-	      } else {
-	          playVideo();
-	      }
-	    }
-
-	    function playVideo() {
-	      console.log('oi')
-	      vid.play();
-	    }
-	  })
-    </script>
   </body>
 </html>
 
