@@ -1,12 +1,18 @@
 <!doctype HTML>
 <html>
+<head>
 <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
 <!--<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"> </script>-->
 <script src="aframe-ar.js"> </script>
-  <body style='margin : 0px; overflow: hidden;'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+ <body style='margin : 0px; overflow: hidden;'>
+ 	<input id='elementID' autoplay type="submit" style="display: none;">
     <a-scene embedded arjs>
+    	<a-assets>
+		    <video id="video" loop='true' src="barbie-pop.mp4" webkit-playsinline></video>
+		</a-assets>
 	  	<a-marker preset='custom' type='pattern' url='ded.patt'>
-	    	   <!-- <a-marker preset='hiro'>-->
 	  		<a-image src="equipe-gu.png" rotation="-90 0 0" height=6 width=6></a-image>
 		  	<a-image src="ded.png" rotation="-90 0 0" height=0.2 width=1 position='-2 2 2'>
 		  		<a-animation attribute = "scale"
@@ -18,20 +24,42 @@
 								 repeat="indefinite"></a-animation>
 		  	</a-image>
 	  	</a-marker>
+	  	<a-marker preset='hiro'> 	
+			<!-- Using the asset management system. -->
+			<a-video src="#video" rotation="-90 0 0" width="2"></a-video>
+	  	</a-marker>
   		<a-entity camera></a-entity>
     </a-scene>
+    <script type="text/javascript">
+	  document.addEventListener("DOMContentLoaded", function(event) {
+	    var scene = document.querySelector("a-scene");
+	    var vid = document.getElementById("video");
+
+		document.getElementById('elementID').click();
+
+	    if (scene.hasLoaded) {
+	      playVideo();
+	    } else {
+	      scene.addEventListener("loaded", run);
+	    }
+
+	    function run () {
+	      if(AFRAME.utils.device.isMobile()) {
+	        document.querySelector('#splash').style.display = 'flex';
+	        document.querySelector('#splash').addEventListener('click', function () {
+	          playVideo();
+	          this.style.display = 'none';
+	        })
+	      } else {
+	          playVideo();
+	      }
+	    }
+
+	    function playVideo() {
+	      console.log('oi')
+	      vid.play();
+	    }
+	  })
+    </script>
   </body>
 </html>
-
-		  		<!--<a-animation attribute = "scale"
-								 dur = "1000"
-								 from = "1 1 1"
-								 to = "2 2 2"
-								 direction="alternate-reverse"
-								 easing="ease-in-out-circ"
-								 repeat="indefinite"></a-animation>			
-		  	
-			<a-sphere src="earth_atmos_4096.jpg" radius="1"
-			segments-height="53">
-			</a-sphere> 
-			-->		
