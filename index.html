@@ -26,29 +26,12 @@
 	  		<a-video id='target2' src="#vid2" rotation="-90 0 0" height=3 width=6></a-video>
 	  	</a-marker>
 	  	
-  		<a-entity camera>
-  			  <a-entity cursor="fuse: true; fuseTimeout: 500"
-			            position="0 0 -1"
-			            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-			            material="color: black; shader: flat">
-			  </a-entity>
-  		</a-entity>
+  		<a-entity camera></a-entity>
     </a-scene>
 	<script>
-		var vid = document.getElementById('vid');
-		var vid2 = document.getElementById('vid2');
-		var targetE1 = document.querySelector('#target1');		
-		var targetE2 = document.querySelector('#target2');
-		
-		targetE1.addEventListener('click', function() {
-			console.log('video-pop-explica(video1)');
-		  	vid2.pause();
-		  	vid.play();		  
-		});
-		targetE2.addEventListener('click', function() {
-		  	console.log('video-vantagens-pop(video2)');
-		  	vid.pause();
-		  	vid2.play();
+		var vid = document.getElementById("vid");
+		window.addEventListener('click', function(){		  
+		  vid.play();
 		});
 
 		/*
