@@ -16,7 +16,7 @@
 		  <video id='vid2' src="vantagens-pop.mp4" crossorigin="anonymous" webkit-playsinline playsinline></video>
 		</a-assets>
 
-		<!-- ================== POP ================== -->
+		<!-- ================== HIRO ================== -->
 	  	<a-marker preset='hiro'>
 			<a-video id='target1' src="#vid" rotation="-90 0 0" height=2 width=4></a-video>
 	  	</a-marker>
@@ -24,6 +24,12 @@
 		<!-- ================== KANJI ================== -->
 		<a-marker preset='kanji'> 	  	
 	  		<a-video id='target2' src="#vid2" rotation="-90 0 0" height=3 width=6></a-video>
+	  	</a-marker>
+	    
+	    	<!-- ================== DED ================== -->
+		<a-marker preset='custom' type='pattern' url='ded.patt'> 	  	
+	  		<a-entity geometry="primitive:plane" material="shader:gif;src:url(BLACK.gif);" 
+		  	gif="" rotation="-90 0 0" scale='5 5 0'></a-entity>
 	  	</a-marker>
 	  	
   		<a-entity camera></a-entity>
