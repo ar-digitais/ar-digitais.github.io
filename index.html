@@ -13,7 +13,6 @@
     	<!-- ================== ASSETS ================== -->
     	<a-assets>
 		  <video id='vid' src="pop.mp4" crossorigin="anonymous" webkit-playsinline playsinline></video>
-		  <video id='vid2' src="vantagens-pop.mp4" crossorigin="anonymous" webkit-playsinline playsinline></video>
 		</a-assets>
 
 		<!-- ================== HIRO ================== -->
@@ -23,12 +22,17 @@
 
 		<!-- ================== KANJI ================== -->
 		<a-marker preset='kanji'> 	  	
-	  		<a-video id='target2' src="#vid2" rotation="-90 0 0" height=3 width=6></a-video>
+	  		<a-video id='kanji' src="mapa_andar.png" rotation="-90 0 0" height=3 width=3></a-video>
 	  	</a-marker>
 	    
-	    	<!-- ================== DED ================== -->
-		<a-marker preset='custom' type='pattern' url='ded.patt'> 	  	
-	  		<a-image src="BLACK.png" rotation="-90 0 0" width=10 height=9></a-image>
+	    <!-- ================== PRESET 1 ================== -->
+		<a-marker preset='custom' type='pattern' url='ded.patt'>
+			<a-image src="blig.png" rotation="-90 0 0" height=2 width=5></a-image>	
+	  	</a-marker>
+
+	  	<!-- ================== PRESET 2 ================== -->
+		<a-marker preset='custom' type='pattern' url='ded.patt'>
+			<a-image src="blig.png" rotation="-90 0 0" height=2 width=5></a-image>	
 	  	</a-marker>
 	  	
   		<a-entity camera></a-entity>
@@ -38,19 +42,12 @@
 		var cont = 0;
 
 		var vid1 = document.getElementById("vid");
-		var vid2 = document.getElementById("vid2");
 		window.addEventListener('click', function(){		  
 		  if (cont == 0){
-		  	vid2.pause();
 		  	vid1.play();
 		  	cont = 1;
-		  }else if(cont == 1){
-		  	vid1.pause();
-		  	vid2.play();
-		  	cont = 2;
 		  }else{
 		  	vid1.pause();
-		  	vid2.pause();
 		  	cont = 0;
 		  }			  
 		});
@@ -58,7 +55,6 @@
 	</script>
   </body>
 </html>
-
 
 <!--  <a-animation attribute = "scale"
 		dur = "1000"
